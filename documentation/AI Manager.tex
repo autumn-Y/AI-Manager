@@ -1,0 +1,217 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{ulem}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{J.Ansol\\
+{\footnotesize \textsuperscript{*}Software Engineering, Artificial Intelligence and Application}
+}
+
+\author{\IEEEauthorblockN{1\textsuperscript{st} Kim Nayoung}
+\IEEEauthorblockA{\textit{Department of Information Systems} \\
+\textit{Hanyang University}\\ 
+Seoul, South Korea \\
+nykongkong@hanyang.ac.kr}
+\and
+\IEEEauthorblockN{2\textsuperscript{nd} Heo Yunseo}
+\IEEEauthorblockA{\textit{Department of Information Systems} \\
+\textit{Hanyang University}\\
+Seoul, South Korea \\
+zizizic103@gmail.com}
+\and
+\IEEEauthorblockN{3\textsuperscript{rd} Hwang Yuna}
+\IEEEauthorblockA{\textit{Department of Information Systems} \\
+\textit{Hanyang University}\\
+Souel, South Korea \\
+hyn4008@naver.com}
+}
+
+\maketitle
+
+\begin{abstract}
+"AI Manager" is a service that targets people living alone and nags users for their overall life and health. The basic way of speaking of service is informal. The service can be largely divided into life mode and mental care mode. In the life mode, it takes care of things related to the whole life, such as waking up, sleeping, eating, exercising, and managing housework. There is mental care mode which is created with the aim of being able to do a warm conversation. In this mode, simple greetings and moody music and video recommendations are available.\\
+\end{abstract}
+
+\begin{IEEEkeywords}
+AI Speaker, Mobile Application
+\\
+\\
+\\
+\\
+\end{IEEEkeywords}
+
+\section*{Role Assignment}
+\begin{table}[hbt!]
+% \caption{Table Type Styles}
+% \begin{center}
+\begin{tabular}{|p{0.1\textwidth}|p{0.06\textwidth}|p{0.25\textwidth}|}
+\cline{1-3} 
+\textbf{Role} & \textbf{\textit{Name}}& \textbf{\textit{Task Description}}\\
+\hline
+User/Customer&All&Since it is a software developed for personal use, there is a very high probability that the user and the costumer are the same. They buy products and actually use them in their daily lives.Therefore, it is necessary to accurately understand what their needs are, and analyze what can stimulate their desire to buy, market conditions, and competitive products. You should also receive user feedback to update the product periodically and consider new products. \\
+\hline
+Server Developer&Nayoug Kim, Yunseo Heo&Server development is a technology that manages servers or databases, an area that users of applications cannot see, and actually manages data or operates servers so that clients can provide the information they want. Therefore, server developers engage in various development activities such as system component work, API creation, library creation, and database integration.\\
+\hline
+Client Developer&Yuna Hwang&Client developers should implement a simple, intuitive interface to make our services more convenient for users. In particular, in developing an app, it is very important to accurately recognize what gestures the user makes because not only the screen shown to the user but also all gestures are related to the functions in the app.\\
+\hline
+\end{tabular}
+% \label{tab1}
+% \end{center}
+\end{table}
+
+\begin{table}[hbt!]
+% \caption{Table Type Styles}
+% \begin{center}
+\begin{tabular}{|p{0.1\textwidth}|p{0.06\textwidth}|p{0.25\textwidth}|}
+\cline{1-3} 
+\hline
+
+AI Developer&Nayoug Kim, Yunseo Heo&AI developer program systems that will change to suit the business’s needs based on the data collected and analyzed. In this service, they will make AI to recommend based on users’ past data. They design, develop, implement, and monitor AI systems and put efforts on data ingest and data transformation architecture.\\
+\hline
+Development Manager&Yuna Hwang&The development manager manages overall project. Initially, he sets goals for this project, and plans accordingly. Then, he supervises to lead the project to success, such as whether the project is moving well toward its goal and whether each team member is performing his or her duties well. From the beginning to the end of the project, the development manager should continue to consider and strive to meet the needs of clients. In addition, development managers should help ensure smooth communication within the team.\\
+\hline
+\end{tabular}
+% \label{tab1}
+% \end{center}
+\end{table}
+
+\section{Introduction}
+
+\subsection{Motivation}
+
+Recently, the number of senior  single-person households is increasing rapidly. In the past, the elderly received support from their children who grew up. There were many large  families, but as they became more and more small families, many parents were left alone after their children became independent. Also as the elderly divorce became more frequent, The number of elderly people living alone is increasing not only for bereavement but also for other reasons.
+\newline
+In particular, their brain function and physical exercise function are worse than before due to aging. Therefore, seniors need someone who will take care of their daily lives from time to time, such as whether they did housework without forgetting, whether they missed simple exercise, and whether they ate a meal. The existence of a "mother" who nags on the side to lead a better life in their immature days has become necessary again for the elderly living alone.
+\newline
+In addition, single-person households naturally feel depressed as communication is cut off. In particular, due to the social distancing of COVID-19, they feel more alienated as they lack exchanges with people around them. Also, there are many seniors who are psychologically unstable suffer from idling syndrome due to retirement  and independence of their children. In these psychological situations, it is very helpful to live a regular life and achieve small goals one by one.
+\newline
+Our team is going to develop a program called 'J.Ansol' for these people. J.Ansol connects LG's various smart electronics to NUGU, a SK’s AI speaker, to manage users' wake-up, sleep, meals, exercise, and housework. In addition, it helps mental care through conversations with users.
+
+
+\subsection{Problem statement(user's needs)}
+
+- According to Statistics Korea, the proportion of single-person households is steadily increasing from 27.2% in 2015 to 33.4% in 2021.
+\newline
+\newline
+- As of 2021, the number of deaths without relatives was 3,488 and the number has been continuously increased. As a result, the lonely death of the elderly and young people is emerging as another social problem.
+\newline
+\newline
+- Lack of social infrastructure to care for single-person households that have no relatives or disconnected from society
+\newline
+\newline
+- People who live alone often feel lonely
+\newline
+\newline
+- People who live alone need someone to take care of them.
+\newline
+\newline
+- Users can feel less pressure if there is someone to help them while they have to deal with everything by themselves.
+
+\subsection{Research on related software}
+
+\begin{enumerate}
+    \item NAVER Clova Application \& Skill Store\\
+	Clova is an Ai technology developed by Naver, and Clova-based software includes skills that can be added to the 'Clova application' and artificial intelligence speakers. The Clova app has 'Life Assistant' and 'Smart Home Control' as its main functions. Life Assistant has detailed functions such as schedule management, music selection recommendation, and voice search, and it also reads fairy tales or plays children's songs. In the smart home function, various IoT products are linked with Clova to control lighting, reserve home appliances such as vacuum cleaners and air conditioners. Among the skills that can be added to smart speakers, there are nine skills in Health \& Fitness, which are related to "J.Ansol" and all of them are parenting-related skills except for 119 reports. In addition, in the lifestyle \& art category, all of the impractical functions that companies put for marketing.\\
+    
+    \item GiGA Genie application\\
+    GiGA Genie is the most commonly used AI speaker in Korea that developed by KT. Compared to Clova, there are many similar functions that we want to implement. There are relatively various functions such as home training assistance, delivery food information, voice home appliance control, and routine setting. However, think about "whether the user should make a request first" and "whether the product makes a suggestion to me first," the different points is there.\\
+    
+    \item Melon\\
+    This app is the No. 1 product in sales among music/audio-related apps, and has functions such as streaming, storing and playing music, and recommending music. Apps with similar functions include spotify and YouTube Music. Among them, the important thing to see is the music recommendation function. Recommendations are made using data such as songs with similar embeddings, songs with similar words often used, and which songs people who like the same song additionally like. 
+    J.Ansol's purpose is not just to play a favorite song, but to play music that suits your mood, so it would be better to use music tags.\\
+    
+    \item Gourmet Q\\
+    Gourmet Q is an app that recommends menus. Although the number of views and downloads is relatively low compared to other applications, we should give an attention to its recommending system which is based on combining menu evaluations, taste records, and allergy information, not just randomly recommending foods. If possible, we want to make a recommendation function with a similar algorithm. It would be nice to include information such as weather, situation, and emotion.\\
+    
+    \
+    \\
+\end{enumerate}
+
+\section{REQUIREMENT ANALYSIS}
+    
+    
+\subsection{Mobile Application}
+    \begin{enumerate}
+        \item User Identification\\
+        After creating an account, the user must set a default profile. Basic information requires name, age, gender, residence, and contact information. The name, age, and gender are unique data so they cannot be changed. If it needs to be changed, it can be changed after entering the password with a warning that the recommendation function may not be smooth. There is also a nickname function, so when you hear nagging, you can choose the name you want to be called. In addition, you can request information that can be helpful when learning AI such as food taste, exercise degree, and life pattern. When the account is deleted, the profile and data are also deleted.\\
+        
+        \item AI On/Off Function\\
+        In special circumstances, you may want to turn off or have to turn off the nagging of the ai speaker. In addition, there are cases where you don't want to hear nagging about a specific part. Considering this case, we provides a function to turn nagging on and off entirely or partially. You can turn off the Ai speaker at all, but you can also turn on and off nagging through the app.\\
+        
+        \item Nagging or Alarm Selection\\
+        We considered cases where you may want to hear notifications through AI speakers, but you want to hear notifications only with alarm sounds except for voices. If you don't want to be nagged but want to be notified, you can choose one of the two modes in each function. The alarm music has to be set before or user will hear the default sound. Both alarm and nagging functions can be selected, in which case music comes out with words.\\
+        
+        \item Progress of Household Chores\\
+        The app provides information for LG’s appliances to do chores by connecting ai speaker to the appliances. First, users can check whether the home appliance is running through the on/off indication for each connected appliances, and how far it has progressed through the bar. Below that, the scheduled date and time for the next cleaning is shown. It also tells users when they have to clean up the appliances based on characteristics of each appliances.
+    \end{enumerate}
+    
+\subsection{NUGU API}
+    \begin{enumerate}
+        \item Physical Care\\
+        Ask at the set time that if user exercised or not. And if user give an answer that didn't do the exercise, tell user to do it. If it can be linked to smart home appliances such as smart TVs or ThinQ application, it can turn on the connected TV to show the stored YouTube home training videos, and turn on air conditioners or music to set up in a comfortable state to exercise.\\        
+        \item Eating Life\\
+            when there was a person at home and there was no opening and closing the refrigerator on time, J.Ansol will asks "Did you have a meal?". If the answer comes back that user didn't eat yet, it will encourage users to eat at on time. And if you have difficulty choosing a menu, she will recommend a menu. Menu recommendations are made according to general preferences, weather, and learned user's tastes. \\
+            
+        \item Wake up \& Sleep Alarm\\
+        It provides wake-up and sleep alarm functions based on the user's life pattern. The basic alarm sound is nagging, but the alarm sound can be set according to the user's taste by providing various options. In addition, a lighting management function is provided, such as turning on a light during wake-up time and turning off the lighting management functions are provided.\\
+        
+        \item \sout{Household Chores\\
+        Let users know and prepare before LG appliances do a regular cleaning. (ex. put clothes in a laundry basket, and dishes in a dishwasher) If you are in a situation where appliances should not clean, you can postpone it through the Postpone Housework button. You can check the process of cleaning within the app.\\}
+        
+        \item \sout{Mental Care\\
+        In the mental function, user can use services such as daily greeting, a question about mood, a recommendation music or video for meditation and mental care. Greeting would be “have a wonderful day” in the morning and asking what kind of day it was in the evening like a sweet roommate. By asking how user feel, AI can recognize some words and recommend music that fits the user's mood, or recommend meditation that is good for mental care.\\}
+    \end{enumerate}
+    
+\subsection{AI Algorithm}
+    \begin{enumerate}
+        \item Recommendation
+        \begin{enumerate}
+            \item Menu Recommendation\\
+            After making a product and investigating people's preference menus by weather, questions are asked based on general preferences. After that, the user's taste is grasped through the answer to the question and learned to make more sophisticated recommendations. It seems that it will be helpful for people to sometimes be recommended to feel confident in their own intentions.\\
+            
+            \item Music Recommendation\\
+            Similar to the menu by weather, after researching music genres and singers that fit emotions, questions are asked based on general preferences. The beginning of the first conversation is to ask for emotions, which largely divides the categories of emotions into three categories: "depression," "feel good," and "calm." And ask if it is okay to play music corresponding to each category. At this time, it is necessary to be able to learn whether the user prefers music similar to his or her emotions or the opposite music. It should also be learned to prefer a particular genre or singer's music.\\
+            
+        \end{enumerate}
+        \item Life Pattern\\
+        It identifies the time to sleep, the total time to use the cell phone, and the time to eat, and gradually changes the question time according to the user's life pattern. However, the purpose of this software is to nag users for a better life, so J.Ansol tries to gradually get closer to the goal that the user initially set (ex. I'll make sure to eat breakfast before 8 o'clock on weekdays e.g.). If the user wants to, users can get a statistic weekly reports which is related to life patterns.\\
+    \end{enumerate}
+
+\section{DEVELOPMENT ENVIRONMENT}
+
+\subsection{Choice of software development platform}
+	\begin{enumerate}
+	\item Which platform and why?\\
+	
+	\item Which programming language and why?\\
+		
+	\item Provide clear information about your development environment:\\
+	
+	\end{enumerate}
+	
+\subsection{Software in use}
+
+\section{SPECIFICATIONS}
+	\begin{enumerate}
+	\item loading\\
+	\item log in\\
+	\item sign up\\
+	\item main page\\
+	\item menu\\
+	
+	\end{enumerate}
+	
+\begin{thebibliography}{00}
+\bibitem{b1}
+\end{thebibliography}
+
+\end{document}
