@@ -20,4 +20,6 @@ from nugu import urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('nugu.urls')),
+    path('support/', include('support.urls')),
+
 ]
