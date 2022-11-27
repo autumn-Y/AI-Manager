@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'nugu',
 
-    'support.apps.SupportConfig',
+    'support_login.apps.SupportConfig',
+    'support_app',
 
     # cross domain
     'corsheaders',
@@ -131,7 +132,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 

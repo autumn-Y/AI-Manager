@@ -9,7 +9,7 @@ import json
 
 
 def index(request):
-    return HttpResponse("You're at the support index")
+    return HttpResponse("You're at the support_login index")
 
 
 class SignupView(View):

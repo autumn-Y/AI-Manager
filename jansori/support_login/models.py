@@ -10,14 +10,15 @@ class Members(models.Model):
     location = models.CharField(max_length=30)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'Members'
 
     objects = models.Manager()
 
 
 class DailyRoutin(models.Model):
-    id = models.OneToOneField(Members, models.DO_NOTHING, db_column='ID', primary_key=True)  # Field name made lowercase.
+    id = models.ForeignKey(
+        Members, models.DO_NOTHING, db_column='ID', primary_key=True)  # Field name made lowercase.
     recent_meal = models.DateTimeField(blank=True, null=True)
     recent_exercise = models.DateTimeField(blank=True, null=True)
     recent_clean = models.DateTimeField(blank=True, null=True)
@@ -27,5 +28,5 @@ class DailyRoutin(models.Model):
     today_meal = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'daily_routin'
