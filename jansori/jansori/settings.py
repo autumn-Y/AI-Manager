@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-min*j@c9a2_5)b%&8yp-n@f3dabbp9^!)gji+nz$eivdoaypxr
 DEBUG = True
 
 # ngrok address ['address', '127.0.0.1']
-ALLOWED_HOSTS = ['36c3-110-12-22-15.jp.ngrok.io', '127.0.0.1']
+ALLOWED_HOSTS = ['36c3-110-12-22-15.jp.ngrok.io', '127.0.0.1', '192.168.10.105']
 
 
 # Application definition
