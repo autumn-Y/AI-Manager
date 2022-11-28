@@ -177,6 +177,8 @@ def odd_weather(request):
     ctx['wmessage1'] = ""
     lg_app = []
 
+    # check odd weather condition based on data dictionary
+    # set parameter value along with the weather condition
     for key, value in weather_msg.items():
         if(value == 1):
             if(key=='폭염'):
@@ -221,7 +223,7 @@ def odd_weather(request):
     
     # nugu response set
     respon = {
-        "version": "2.0",
+        "version": "2.1",
         "resultCode": "OK",
         "output":ctx,
     }
@@ -240,7 +242,7 @@ def give_temp(request):
     ctx["tmessage"] = "오늘 최고 기온은 " + str(high_temp) + "도이고, 오늘 최저 기온은 " + str(low_temp) + "도래."
     # nugu response set
     respon = {
-        "version": "2.0",
+        "version": "2.1",
         "resultCode": "OK",
         "output":ctx,
     }
@@ -262,7 +264,7 @@ def give_rain_probability(request):
 
     # nugu response set
     respon = {
-        "version": "2.0",
+        "version": "2.1",
         "resultCode": "OK",
         "output":ctx,
     }
@@ -288,9 +290,9 @@ def give_dust(request):
 
     # nugu response set
     respon = {
-        "version": "2.0",
+        "version": "2.1",
         "resultCode": "OK",
         "output":ctx,
     }
 
-    return JsonResponse(respon) 
+    return JsonResponse(respon)

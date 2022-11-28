@@ -4,9 +4,9 @@ import json
 from django.http import JsonResponse
 from datetime import datetime, time, timedelta
 
-ex_date = datetime(2022, 11, 20) # date and time format
-eat_time = datetime(2022, 11, 24, 12, 0) # date and time format
-clean_date = datetime(2022, 11, 15)
+ex_date = datetime(2022, 11, 26) # date and time format
+eat_time = datetime(2022, 11, 27, 12, 0) # date and time format
+clean_date = datetime(2022, 11, 24)
 clean_cycle = 7
 
 def what_user_did():
@@ -59,11 +59,18 @@ def msg_for_clean():
 def answer_athome(request):    
     ctx = {}
     ctx['hmessage'] = ""
+    
+    # make a list or yes & no for excercise, meal, clean
     user_did = what_user_did()
     print(user_did)
-    eat_num = 2 # integer number    
+    eat_num = 2 # integer number  
+
+    # "ex_not_dat" is backend parameter
+    # to decide whether speacker turn on the tv on purpose
     ctx["ex_not_day"] = str((datetime.now() - ex_date).days)
     print(ctx)
+    
+    # count is for cover all situation
     count = 0
     not_did_list = []
     for key, value in user_did.items():
@@ -116,7 +123,7 @@ def answer_athome(request):
             ctx['hmessage'] = ctx['hmessage'] + clean_msg + " "
     
     respon = {
-        "version": "2.0",
+        "version": "2.1",
         "resultCode": "OK",
         "output":ctx,
     }
