@@ -42,9 +42,7 @@ INSTALLED_APPS = [
     # I added
     'rest_framework',
     'nugu',
-
-    'support_login.apps.SupportConfig',
-    'support_app',
+    'app',
 
     # cross domain
     'corsheaders',
@@ -100,7 +98,7 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'User',
+        'NAME': 'aimanager',
         'USER': 'root',
         'PASSWORD': '0417',
         'HOST': '34.64.40.238',
@@ -130,7 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko-kr'
 
 TIME_ZONE = 'Asia/Seoul'
 

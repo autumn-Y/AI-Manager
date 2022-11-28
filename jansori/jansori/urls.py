@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+
+
 from nugu import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('nugu.urls')),
-    path('support_login/', include('support_login.urls')),
-    path('support_app/', include("support_app.urls")),
+    path('app/', include('app.urls')),
 ]
 
