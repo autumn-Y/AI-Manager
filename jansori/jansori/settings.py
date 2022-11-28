@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-min*j@c9a2_5)b%&8yp-n@f3dabbp9^!)gji+nz$eivdoaypxr
 DEBUG = True
 
 # ngrok address ['address', '127.0.0.1']
-ALLOWED_HOSTS = ['36c3-110-12-22-15.jp.ngrok.io', '127.0.0.1', '192.168.10.105']
+ALLOWED_HOSTS = ['e13b-218-235-241-52.jp.ngrok.io', '127.0.0.1', '192.168.10.105']
 
 
 # Application definition
@@ -42,6 +42,12 @@ INSTALLED_APPS = [
     # I added
     'rest_framework',
     'nugu',
+
+    'support_login.apps.SupportConfig',
+    'support_app',
+
+    # cross domain
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +58,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # cross domain
+    'corsheaders.middleware.CorsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'jansori.urls'
@@ -78,13 +88,25 @@ WSGI_APPLICATION = 'jansori.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+"""
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'User',
+        'USER': 'root',
+        'PASSWORD': '0417',
+        'HOST': '34.64.40.238',
+        'PORT': '3306',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -110,7 +132,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
@@ -126,3 +148,31 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#cross domain
+##CORS
+CORS_ORIGIN_ALLOW_ALL=True
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOW_METHODS = (
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+)
+
+CORS_ALLOW_HEADERS = (
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+)
+
+APPEND_SLASH = False
