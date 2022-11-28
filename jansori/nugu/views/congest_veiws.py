@@ -16,7 +16,7 @@ def get_congest(dest):
     endnum = 5
 
 
-    df = pd.read_csv(r'.\seoul_main_50 places.csv')
+    df = pd.read_csv(r'nugu\views\seoul_main_50 places.csv')
     mask = (df['주변역']==dest)
 
     if mask.sum()==0:
@@ -51,7 +51,7 @@ def special_date():
 
     # 새해
     elif (datetime.today().month == "12") and (datetime.today().day == "31"):
-        cmessage = " 새해 복 많이 받아! 오늘 설마 보신각 갈거야? 일 년의 마지막날과 첫 날은 소중한 사람들과 함께 보내기!"
+        cmessage = " 새해 복 많이 받아! 오늘 보신각 갈거야? 일 년의 마지막날과 첫 날은 소중한 사람들과 함께 보내기!"
     
     else:
         cmessage = "normal"
@@ -61,7 +61,10 @@ def special_date():
 @csrf_exempt
 def answer_congest(reqeust):
     nugu_body = json.loads(reqeust.body)
-    destination = nugu_body.get('action').get('parameters').get('DESTINATION').get('value')
+    # destination = nugu_body.get('action').get('parameters').get('DESTINATION').get('value')
+    print(nugu_body)
+    destination = nugu_body['action']['parameters']['DESTINATION']['value']
+    print(destination)
     # subway_nm = "시청역"
     # place = "명동"
     congest_lvl, congest_msg = get_congest(destination)
@@ -72,7 +75,7 @@ def answer_congest(reqeust):
         
         # nugu response set
         respon = {
-            "version": "2.0",
+            "version": "2.1",
             "resultCode": "OK",
             "output":ctx,
         }
@@ -87,7 +90,7 @@ def answer_congest(reqeust):
     print(ctx)
     # nugu response set
     respon = {
-        "version": "2.0",
+        "version": "2.1",
         "resultCode": "OK",
         "output":ctx,
     }
