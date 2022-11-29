@@ -17,19 +17,19 @@ class GoalSerializer(serializers.ModelSerializer):
 class MealSerializer(serializers.ModelSerializer):
     class Meta:
         model = Recent
-        fields = ['recent_meal_id', 'recent_meal']
+        fields = ['recent_meal']
 
 
 class ExeerciseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Recent
-        fields = ['recent_exercise_id', 'recent_exercise']
+        fields = ['recent_exercise']
 
 
 class CleanSerializer(serializers.ModelSerializer):
     class Meta:
         model = Recent
-        fields = ['recent_clean_id', 'recent_clean']
+        fields = ['recent_clean']
 
 
 

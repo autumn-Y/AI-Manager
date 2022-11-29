@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-min*j@c9a2_5)b%&8yp-n@f3dabbp9^!)gji+nz$eivdoaypxr
 DEBUG = True
 
 # ngrok address ['address', '127.0.0.1']
-ALLOWED_HOSTS = ['e13b-218-235-241-52.jp.ngrok.io', '127.0.0.1', '192.168.10.105']
+ALLOWED_HOSTS = ['e13b-218-235-241-52.jp.ngrok.io', '127.0.0.1', '192.168.10.105', '172.16.71.199']
 
 
 # Application definition
@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'nugu',
     'app',
+    'newapp',
+    'rest_framework.authtoken',
 
     # cross domain
     'corsheaders',
@@ -149,7 +151,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #cross domain
 ##CORS
-CORS_ORIGIN_ALLOW_ALL=True
+CORS_ORIGIN_ALLOW_ALL= True
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOW_METHODS = (
