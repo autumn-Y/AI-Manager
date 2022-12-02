@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'nugu',
     'app',
+    'newapp',
+    'rest_framework.authtoken',
 
     # cross domain
     'corsheaders',
@@ -149,7 +151,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #cross domain
 ##CORS
-CORS_ORIGIN_ALLOW_ALL=True
+CORS_ORIGIN_ALLOW_ALL= True
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOW_METHODS = (

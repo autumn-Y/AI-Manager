@@ -1,9 +1,11 @@
+import datetime
+
 from django.db import models
 
 # user information
 class User(models.Model):
-    name = models.CharField(max_length=30)
-    user_id = models.CharField(max_length=30)
+    name = models.CharField(max_length=20)
+    user_id = models.CharField(max_length=30, primary_key=True)
     pw = models.CharField(max_length=30)
     location = models.CharField(max_length=30, default='서울시 성동구')
 
@@ -17,7 +19,7 @@ class User(models.Model):
 
 
 class Goal(models.Model):
-    goal_id = models.ForeignKey(User, on_delete=models.CASCADE, db_column='goal_id')
+    goal_id = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, db_column='goal_id')
     meal = models.IntegerField()
     exercise = models.IntegerField()
     clean = models.IntegerField()
@@ -29,11 +31,11 @@ class Goal(models.Model):
 
 
 class Recent(models.Model):
-    recent_id = models.ForeignKey(User, on_delete=models.CASCADE, db_column='goal_id')
-    recent_meal = models.DateTimeField()
-    meal_count = models.IntegerField()
-    recent_exercise = models.DateTimeField()
-    recent_clean = models.DateTimeField()
+    recent_id = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, db_column='recent_id')
+    recent_meal = models.DateTimeField(default=datetime.datetime.now())
+    meal_count = models.IntegerField(default=0)
+    recent_exercise = models.DateTimeField(default=datetime.datetime.now())
+    recent_clean = models.DateTimeField(default=datetime.datetime.now())
 
     class Meta:
         db_table = 'recent'
