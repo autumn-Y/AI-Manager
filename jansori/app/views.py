@@ -34,14 +34,14 @@ def turnonAPI(request, turnon_id):
 
 
 
-@api_view(['GET', 'POST'])
+@api_view(['POST'])
 def usersAPI(request):
-    if request.method == 'GET':
+    """if request.method == 'GET':
         users = User.objects.all()
         serializer = UserSerializer(users, many=True)
 
-        return Response(serializer.data, status=status.HTTP_200_OK)
-    elif request.method == 'POST':
+        return Response(serializer.data, status=status.HTTP_200_OK)"""
+    if request.method == 'POST':
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
