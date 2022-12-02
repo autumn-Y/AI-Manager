@@ -1,6 +1,6 @@
 from django.db import models
 
-
+# user information
 class User(models.Model):
     name = models.CharField(max_length=30)
     user_id = models.CharField(max_length=30)

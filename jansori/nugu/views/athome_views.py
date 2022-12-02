@@ -4,10 +4,19 @@ import json
 from django.http import JsonResponse
 from datetime import datetime, time, timedelta
 
+from app.models import Recent, Goal
+
 ex_date = datetime(2022, 11, 26) # date and time format
 eat_time = datetime(2022, 11, 27, 12, 0) # date and time format
 clean_date = datetime(2022, 11, 24)
 clean_cycle = 7
+eat_num = 2 # integer value
+
+# ex_date = Recent.recent_exercise
+# eat_date = Recent.recent_meal
+# clean_date = Recent.recent_clean
+# clean_cycle = Goal.clean
+# eat_num = Recent.meal_count
 
 def what_user_did():
     did_what = {}
@@ -62,8 +71,7 @@ def answer_athome(request):
     
     # make a list or yes & no for excercise, meal, clean
     user_did = what_user_did()
-    print(user_did)
-    eat_num = 2 # integer number  
+    print(user_did)  
 
     # "ex_not_dat" is backend parameter
     # to decide whether speacker turn on the tv on purpose
