@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-min*j@c9a2_5)b%&8yp-n@f3dabbp9^!)gji+nz$eivdoaypxr
 DEBUG = True
 
 # ngrok address ['address', '127.0.0.1']
-ALLOWED_HOSTS = ['e13b-218-235-241-52.jp.ngrok.io', '127.0.0.1', '192.168.10.105', '172.16.71.199']
-
+# ALLOWED_HOSTS = ['e13b-218-235-241-52.jp.ngrok.io', '127.0.0.1', '192.168.10.105']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -87,14 +87,14 @@ WSGI_APPLICATION = 'jansori.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-"""
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-"""
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 
 DATABASES = {
     'default': {
