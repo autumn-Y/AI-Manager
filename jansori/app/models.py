@@ -32,12 +32,40 @@ class Goal(models.Model):
 
 class Recent(models.Model):
     recent_id = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, db_column='recent_id')
-    recent_meal = models.DateTimeField(default=datetime.datetime.now())
-    meal_count = models.IntegerField(default=0)
-    recent_exercise = models.DateTimeField(default=datetime.datetime.now())
-    recent_clean = models.DateTimeField(default=datetime.datetime.now())
+    recent_meal = models.DateTimeField(blank=True, default=datetime.datetime.now())
+    meal_count = models.IntegerField(blank=True, default=0)
+    recent_exercise = models.DateTimeField(blank=True, default=datetime.datetime.now())
+    recent_clean = models.DateTimeField(blank=True, default=datetime.datetime.now())
 
     class Meta:
         db_table = 'recent'
 
     objects = models.Manager()
+
+
+class HomeConnect(models.Model):
+    home_id = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, db_column='home_id')
+    air_conditioner_name = models.CharField(max_length=30)
+    air_purifier_name = models.CharField(max_length=30)
+    tv_name = models.CharField(max_length=30)
+    robot_clean_name = models.CharField(max_length=30)
+
+    class Meta:
+        db_table = 'homeconnect'
+
+    objects = models.Manager()
+
+
+class TurnOn(models.Model):
+    turnon_id = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, db_column='home_id')
+    air_conditioner = models.BooleanField(default=0)
+    air_purifier = models.BooleanField(default=0)
+    tv = models.BooleanField(default=0)
+    robot_clean = models.BooleanField(default=0)
+
+    class Meta:
+        db_table = 'turnon'
+
+    objects = models.Manager()
+
+
