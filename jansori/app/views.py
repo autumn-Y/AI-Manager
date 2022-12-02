@@ -6,7 +6,7 @@ from rest_framework.generics import get_object_or_404
 from .models import User, Goal, Recent, TurnOn, HomeConnect
 from .serializers import UserSerializer, GoalSerializer, MealSerializer, ExerciseSerializer, CleanSerializer, \
     RecentSerializer, TurnOnSerializer, HomeConnectSerializer
-from models import Recent, User,
+from models import Recent, User
 from django.contrib import auth
 
 @api_view(['POST'])
