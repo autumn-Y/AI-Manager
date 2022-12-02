@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'nugu',
     'app',
-    'newapp',
     'rest_framework.authtoken',
 
     # cross domain
