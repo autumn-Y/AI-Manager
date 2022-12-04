@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-min*j@c9a2_5)b%&8yp-n@f3dabbp9^!)gji+nz$eivdoaypxr
 DEBUG = True
 
 # ngrok address ['address', '127.0.0.1']
-# ALLOWED_HOSTS = ['e13b-218-235-241-52.jp.ngrok.io', '127.0.0.1', '192.168.10.105']
+# ALLOWED_HOSTS = ['e13b-218-235-241-52.jp.ngrok.io', '127.0.0.1', '192.168.10.105', '192.168.219.138']
 ALLOWED_HOSTS = ['*']
 
 # Application definition
@@ -161,7 +161,10 @@ CORS_ALLOW_METHODS = (
     'POST',
     'PUT',
 )
-
+# 추가코드
+CORS_ORIGIN_WHITELIST = ['https://192.168.219.138:19000'] # 여기에 포트 넘버까지 주소 입력
+CORS_ALLOW_CREDENTIALS = True
+# 추가코드 끝
 CORS_ALLOW_HEADERS = (
     'accept',
     'accept-encoding',

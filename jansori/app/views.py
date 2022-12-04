@@ -9,6 +9,35 @@ from .serializers import UserSerializer, GoalSerializer, MealSerializer, Exercis
 #from models import Recent, User
 from django.contrib import auth
 
+
+@api_view(['PATCH'])
+def recent_mealAPI(request, resent_meal_id):
+    reqData = request.data
+    data = Recent.objects.get(resent_meal_id=resent_meal_id)
+    serializer = MealSerializer(instance=data, data=reqData)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET','POST'])
+def usersAPI(request):
+    if request.method == 'GET':
+        users = User.objects.all()
+        serializer = UserSerializer(users, many=True)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    if request.method == 'POST':
+        serializer = UserSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            turnonAPI.serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
 @api_view(['POST'])
 def homeconnectAPI(request):
     serializer = HomeConnectSerializer(data=request.data)
@@ -30,23 +59,6 @@ def turnonAPI(request, turnon_id):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-
-@api_view(['POST'])
-def usersAPI(request):
-    """if request.method == 'GET':
-        users = User.objects.all()
-        serializer = UserSerializer(users, many=True)
-
-        return Response(serializer.data, status=status.HTTP_200_OK)"""
-    if request.method == 'POST':
-        serializer = UserSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            turnonAPI.serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 """
@@ -106,17 +118,6 @@ def recentAPI(request):
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-@api_view(['PATCH'])
-def recent_mealAPI(request, resent_meal_id):
-    reqData = request.data
-    data = Recent.objects.get(resent_meal_id=resent_meal_id)
-    serializer = MealSerializer(instance=data, data=reqData)
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
