@@ -170,7 +170,7 @@ def odd_weather(request):
     weather_data()
     fine_dust()
 
-    # weather_msg = {'폭염': 1, '한파': 0, '건조주의보': 1, '강수메세지': 0, '미세먼지 경보':4}
+    weather_msg = {'폭염': 0, '한파': 1, '건조주의보': 0, '강수메세지': 0, '미세먼지 경보':4}
 
     weather_alert = []
     ctx = {}
@@ -184,29 +184,29 @@ def odd_weather(request):
             if(key=='폭염'):
                 weather_alert.append(key)
                 ctx['veryhot'] = 'yes'
-                ctx['wmessage1'] += "오늘 폭염주의보가 있어."
+                ctx['wmessage1'] += "오늘 폭염주의보가 있어. "
                 lg_app.append('에어컨') 
             
             elif(key=='한파'):
                 weather_alert.append(key)
                 ctx['verycold'] = 'yes'
-                ctx['wmessage1'] += "오늘 한파주의보가 있어."
+                ctx['wmessage1'] += "오늘 한파주의보가 있어. "
 
             elif(key=='건조주의보'):
                 weather_alert.append(key)
                 ctx['verydry'] = 'yes'
-                ctx['wmessage1'] += "오늘 건조주의보가 있어."
+                ctx['wmessage1'] += "오늘 건조주의보가 있어. "
         
         elif(value==3 and key=="미세먼지 경보"):
             weather_alert.append(key)
             ctx['dust'] = 'yes'
-            ctx['wmessage1'] += "오늘 미세먼지 지수는 나쁨이야."
+            ctx['wmessage1'] += "오늘 미세먼지 지수는 나쁨이야. "
             lg_app.append('공기청정기')      
 
         elif(value==4 and key=='미세먼지 경보') :
             weather_alert.append(key)
             ctx['dust'] = 'yes'
-            ctx['wmessage1'] += "오늘 미세먼지 지수는 매우나쁨이야."
+            ctx['wmessage1'] += "오늘 미세먼지 지수는 매우나쁨이야. "
             lg_app.append('공기청정기')             
     
     if len(lg_app) >= 2:
@@ -234,7 +234,7 @@ def odd_weather(request):
 # giving temperature data
 def give_temp(request):
     weather_data()
-    # weather = {'최고기온': 17, '최저기온': 5, '평균습도': 20, '강수확률': 25, '미세먼지': 30}    
+    weather = {'최고기온': 17, '최저기온': 5, '평균습도': 20, '강수확률': 25, '미세먼지': 70}    
     ctx = {}
     high_temp = weather["최고기온"]
     low_temp = weather["최저기온"]

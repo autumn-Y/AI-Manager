@@ -62,7 +62,7 @@ def special_date():
 def answer_congest(reqeust):
     nugu_body = json.loads(reqeust.body)
     # destination = nugu_body.get('action').get('parameters').get('DESTINATION').get('value')
-    print(nugu_body)
+    
     destination = nugu_body['action']['parameters']['DESTINATION']['value']
     print(destination)
     # subway_nm = "시청역"

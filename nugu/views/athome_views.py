@@ -6,10 +6,10 @@ from datetime import datetime, time, timedelta
 
 from app.models import Recent, Goal, User
 
-# ex_date = datetime(2022, 11, 26) # date and time format
-# eat_time = datetime(2022, 11, 27, 12, 0) # date and time format
-# clean_date = datetime(2022, 11, 24)
-# clean_cycle = 7
+# ex_date = datetime(2022, 12, 04) # date and time format
+# eat_time = datetime(2022, 12, 04, 12, 0) # date and time format
+# clean_date = datetime(2022, 12, 04)
+# clean_cycle = 3
 # eat_num = 2 # integer value
 
 user_name = '허윤서'
@@ -22,8 +22,6 @@ goal_data = Goal.objects.get(goal_id = userId)
 ex_date = recent_data.recent_exercise.replace(tzinfo=None)
 eat_time = recent_data.recent_meal.replace(tzinfo=None)
 clean_date = recent_data.recent_clean.replace(tzinfo=None)
-
-# please i want to commit please
 
 clean_cycle = goal_data.clean
 eat_num = recent_data.meal_count
@@ -69,7 +67,7 @@ def msg_for_clean():
     clean_not_day = int((now - clean_date).days)
 
     if clean_not_day > clean_cycle:
-        hmessage = "설정해둔 청소주기가 지났어. 청소를 안 한지 벌써" + str(clean_not_day) + "일째야. 청소기라도 살짝 밀어볼까?"
+        hmessage = "설정해둔 청소주기가 지났어. 청소를 안 한지 벌써 " + str(clean_not_day) + "일째야. 앱에 청소 리스트 참고해서 청소하는 건 어때? 청소기라도 밀어보는거지이. 청소 끝나면 앱으로 알려줘!"
 
     else:
         hmessage = "아직 설정한 청소주기가 돌아오지 않았어. 그래도 눈에 보이는 쓰레기가 있다면 치우는 거 잊지 말기!"
